@@ -1,0 +1,284 @@
+.blog {
+    // .blog__breadcrumbs
+    &__breadcrumbs {}
+    // .blog__tabs
+    &__tabs {
+        padding: 3rem 0;
+    }
+}
+.breadcrumbs-blog {
+    // .breadcrumbs-blog__container
+    &__container {}
+}
+.tabs-blog {
+    @extend .additional-single__tabs;
+    // .tabs-blog__container
+    &__container {}
+    // .tabs-blog__list
+    &__list {
+        @extend .additional-single__list;
+        li {
+            flex: 0 0 30%;
+            @media (max-width:$md3){
+                flex: 0 0 100%;
+            }
+        }
+    }
+    // .tabs-blog__button
+    &__button {
+        @extend .additional-single__button;
+    }
+    // .tabs-blog__education
+    &__education {}
+    // .tabs-blog__title
+    &__title {}
+    // .tabs-blog__news
+    &__news {}
+    .blog-filter-tab {
+        display: none;
+        &._active {
+            display: block;
+        }
+    }
+}
+
+.education-blog {
+    // .education-blog__title
+    &__title {
+        @include adaptive-value("margin-top", 7, 2, $fullWidthContainer, $minWidth, "rem");
+    }
+    // .education-blog__list
+    &__list {
+        @include adaptive-value("margin-top", 5, 2, $fullWidthContainer, $minWidth, "rem");
+        display: grid;
+        align-items:center;
+        @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        grid-template-columns: repeat(8, 1fr);
+        @media (max-width:$md2){
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    // .education-blog__button
+    &__button {
+        background: $whiteColor;
+        box-shadow: 0px 0px 3rem rgba(149, 149, 149, 0.25);
+        @include adaptive-value("border-radius", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        color: $mainColor;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        flex-direction: column;
+        @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        @include adaptive-value("font-size", 2, 1.2, $fullWidthContainer, $minWidth, "rem");
+        padding: 1em 0;
+        width: 100%;
+        transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
+        .style-svg {
+            fill: #505050;
+            @include adaptive-value("height", 8, 5, $fullWidthContainer, $minWidth, "rem");
+            @include adaptive-value("width", 8, 5, $fullWidthContainer, $minWidth, "rem");
+            transition: fill 0.3s ease 0s;
+        }
+        @media (any-hover: hover){
+            &:hover {
+                background-color: $orangeColor;
+                color: $whiteColor;
+                .style-svg {
+                    fill: $whiteColor;
+                }
+            }
+        }
+        &._active {
+            background-color: $orangeColor;
+            color: $whiteColor;
+            .style-svg {
+                fill: $whiteColor;
+            }
+        }
+    }
+    // .education-blog__content
+    &__content {}
+}
+.education-filter-tab {
+    display: none;
+    &._active {
+        display: block;
+    }
+}
+.content-education {
+    @include adaptive-value("margin-top", 10, 5, $fullWidthContainer, $minWidth, "rem");
+    // .content-education__title
+    &__title {}
+    // .content-education__text
+    &__text {
+        @include adaptive-value("margin-top", 6, 3, $fullWidthContainer, $minWidth, "rem");
+        line-height: 1.3;
+        color: #222222;
+        @include adaptive-value("font-size", 2.5, 1.4, $fullWidthContainer, $minWidth, "rem");
+    }
+    // .content-education__image
+    &__image {
+        @include adaptive-value("margin-top", 7, 3, $fullWidthContainer, $minWidth, "rem");
+        @include adaptive-value("border-radius", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        padding: 0 0 33% 0;
+        overflow: hidden;
+    }
+    p {
+        line-height: 1.3;
+        color: #222222;
+        @include adaptive-value("font-size", 2.5, 1.4, $fullWidthContainer, $minWidth, "rem");
+    }
+}
+
+.news-blog {
+    // .news-blog__title
+    &__title {
+        @include adaptive-value("margin-top", 7, 2, $fullWidthContainer, $minWidth, "rem");
+    }
+    // .news-blog__item
+    &__item {
+        @include adaptive-value("margin-top", 5, 2, $fullWidthContainer, $minWidth, "rem");
+        display: flex;
+        padding: 0 10rem 0 0;
+        background: $whiteColor;
+        box-shadow: 0px 0px 1rem rgba(146, 146, 146, 0.2);
+        @include adaptive-value("border-radius", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        overflow: hidden;
+        justify-content:space-between;
+        @media (max-width:$md2){
+            flex-direction: column;
+            padding: 0;
+        }
+    }
+    // .news-blog__image
+    &__image {
+        flex: 0 0 400/1660*100%;
+        @media (max-width:$md2){
+            padding: 0 0 35% 0;
+            flex: 1 1 auto;
+        }
+    }
+    // .news-blog__body
+    &__body {
+        padding: 4rem 7rem;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+        @media (max-width:$md2){
+            padding: 4rem;
+        }
+    }
+    // .news-blog__content
+    &__content {
+        @extend .item-news__content;
+    }
+    // .news-blog__subtitle
+    &__subtitle {
+        @extend .item-news__title;
+    }
+    // .news-blog__author
+    &__author {
+        font-weight: 700;
+        @include adaptive-value("font-size", 2, 1.4, $fullWidthContainer, $minWidth, "rem");
+    }
+    // .news-blog__link
+    &__link {
+        @extend .item-news__link;
+        margin: 0 0 4rem 0;
+        align-self: flex-end;
+        @media (max-width:$md2){
+            align-self: start;
+            margin: 0 0 4rem 4rem;
+        }
+    }
+}
+.faq-blog {
+    // .faq-blog__title
+    &__title {
+        @include adaptive-value("margin-top", 7, 2, $fullWidthContainer, $minWidth, "rem");
+    }
+    // .faq-blog__body
+    &__body {
+        display: flex;
+        align-items:center;
+        @include adaptive-value("margin-top", 5, 3, $fullWidthContainer, $minWidth, "rem");
+    }
+    // .faq-blog__image
+    &__image {
+        margin: 0 -4rem 0 0;
+        img{
+            max-width: 100%;
+        }
+        @media (max-width:$md2){
+            display: none;
+        }
+    }
+    // .faq-blog__list
+    &__list {
+        flex: 0 0 960/1660*100%;
+        display: flex;
+        flex-direction: column;
+        @include adaptive-value("gap", 3, 1, $fullWidthContainer, $minWidth, "rem");
+        @media (max-width:$md2){
+            flex: 1 1 auto;
+        }
+        li {
+            background: $whiteColor;
+            box-shadow: 0px 0px 1rem rgba(149, 149, 149, 0.25);
+            @include adaptive-value("border-radius", 2, 1, $fullWidthContainer, $minWidth, "rem");
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    // .faq-blog__quest
+    &__quest {
+        @include adaptive-value("padding", 5, 2, $fullWidthContainer, $minWidth, "rem");
+        font-weight: 600;
+        @include adaptive-value("font-size", 2.5, 1.4, $fullWidthContainer, $minWidth, "rem");
+        background-color: transparent;
+        text-align: left;
+        display: flex;
+        align-items:center;
+        justify-content:space-between;
+        @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        &._active {
+            span {
+                &::after{
+                    transform: rotate(0deg);
+                }
+            }
+        }
+        span {
+            flex: 0 0 2.2rem;
+            width: 2.2rem;
+            height: 4px;
+            border-radius: 2px;
+            background-color: $mainColor;
+            display: inline-block;
+            position: relative;
+            &::after{
+                content:'';
+                width: 2.2rem;
+                height: 4px;
+                border-radius: 2px;
+                background-color: $mainColor;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                transform: rotate(90deg);
+                transition: transform 0.5s ease 0s;
+            }
+        }
+    }
+    // .faq-blog__answer
+    &__answer {
+        @include adaptive-value("padding-right", 5, 2, $fullWidthContainer, $minWidth, "rem");
+        @include adaptive-value("padding-left", 5, 2, $fullWidthContainer, $minWidth, "rem");
+        @include adaptive-value("padding-bottom", 5, 2, $fullWidthContainer, $minWidth, "rem");
+        line-height: 1.3;
+        @include adaptive-value("font-size", 2, 1.2, $fullWidthContainer, $minWidth, "rem");
+    }
+}

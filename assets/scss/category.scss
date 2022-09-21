@@ -1,0 +1,95 @@
+.category-top {
+    background-color: $orangeColor;
+    padding: 0 0 8rem 0;
+    // .category-top__container
+    &__container {
+        display: flex;
+        align-items:center;
+        justify-content:space-between;
+        @media (max-width:$md2){
+            flex-direction: column;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+    }
+    // .category-top__content
+    &__content {
+        display: flex;
+        flex-direction: column;
+        @include adaptive-value("gap", 10, 2, $fullWidthContainer, $minWidth, "rem");
+    }
+    // .category-top__title
+    &__title {}
+    // .category-top__image
+    &__image {
+        max-width: 30rem;
+        img{
+            max-width: 100%;
+        }
+    }
+}
+.category-sub {
+    margin: -3rem 0 0 0;
+    // .category-sub__list
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        @media (max-width:$md1){
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media (max-width:$md2){
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width:$md3){
+            grid-template-columns: 1fr;
+        }
+    }
+    // .category-sub__container
+    &__container {}
+}
+
+.category-products {
+    @include adaptive-value("padding-top", 7, 3, $fullWidthContainer, $minWidth, "rem");
+    @include adaptive-value("padding-bottom", 7, 3, $fullWidthContainer, $minWidth, "rem");
+    ul.products {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        row-gap: 4rem;
+        @media (max-width:$md1){
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @media (max-width:$md2){
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width:$md3){
+            grid-template-columns: 1fr;
+        }
+    }
+    // .category-products__container
+    &__container {}
+}
+
+.category-order {
+    @include adaptive-value("margin-top", 7, 3, $fullWidthContainer, $minWidth, "rem");
+    select {
+        max-width: 26rem;
+        background: #FFF7E1;
+        border: 1px solid #F9B300;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 1.8rem;
+        line-height: 1.15;
+        cursor: pointer;
+        padding: 0.5em 0;
+        @media (max-width:$md1){
+            font-size: 1.2rem;
+        }
+    }
+    // .category-order__container
+    &__container {}
+}
+
+
+

@@ -1,0 +1,275 @@
+.cart-grid {
+    width: 100%;
+    background: $whiteColor;
+    border: 1px solid #E4E4E4;
+    box-shadow: 0px 0px 1rem rgba(163, 163, 163, 0.25);
+    @include adaptive-value("border-radius", 2, 1, $fullWidthContainer, $minWidth, "rem");
+    @include adaptive-value("margin-top", 3, 2, $fullWidthContainer, $minWidth, "rem");
+    @include adaptive-value("margin-bottom", 5, 3, $fullWidthContainer, $minWidth, "rem");
+    @include adaptive-value("padding-top", 10, 4, $fullWidthContainer, $minWidth, "rem");
+    @include adaptive-value("padding-bottom", 10, 4, $fullWidthContainer, $minWidth, "rem");
+    @include adaptive-value("padding-left", 10, 2, $fullWidthContainer, $minWidth, "rem");
+    @include adaptive-value("padding-right", 10, 2, $fullWidthContainer, $minWidth, "rem");
+    .cart-products {
+        display: flex;
+        flex-direction: column;
+        @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        @include adaptive-value("margin-top", 3, 2, $fullWidthContainer, $minWidth, "rem");
+        ul {
+            display: grid;
+            grid-template-columns: 15% 1fr 10% 15% 10%;
+            gap: 2rem;
+            justify-content: space-between;
+            @media (max-width:$md2){
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-areas:
+                'name name price'
+                'name name subtotal'
+                'remove quantity quantity';
+                .product-remove {
+                    grid-area: remove;
+                }
+                .product-name {
+                    grid-area: name;
+                }
+                .product-price {
+                    grid-area: price;
+                }
+                .product-quantity {
+                    grid-area: quantity;
+                }
+                .product-subtotal {
+                    grid-area: subtotal;
+                }
+            }
+            li {
+                display: flex;
+                justify-content:flex-start;
+                align-items:center;
+                gap: 2rem;
+            }          
+        }
+        //.cart-products__head
+        &__head {
+            padding: 0 1rem;
+            @media (max-width:$md2){
+                display: none;
+            }
+            li {
+                @include adaptive-value("font-size", 2, 1.6, $fullWidthContainer, $minWidth, "rem");
+                color: #222222;
+            }
+        }
+    }
+    .cart-product {
+        padding: 3rem 1rem;
+        border: 1px solid #F0F0F0;
+        border-radius: 2rem;
+        a {
+            font-weight: 700;
+            color: #222222;
+            transition: color 0.3s ease 0s;
+            @include adaptive-value("font-size", 2.5, 1.6, $fullWidthContainer, $minWidth, "rem");
+            @media (any-hover: hover){
+                &:hover {
+                    color: $orangeColor;
+                }
+            }
+        }
+        //.cart-product__prices
+        &__prices {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2rem;
+        }
+        .product-remove {
+            a {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                @include adaptive-value("font-size", 3, 2, $fullWidthContainer, $minWidth, "rem");
+                color: #222222;
+                transition: color 0.3s ease 0s;
+                padding: 0.5em;
+                @media (any-hover: hover){
+                    &:hover {
+                        color: $orangeColor;
+                    }
+                }
+                @media (max-width:$md2){
+                    justify-content: flex-start;
+                }
+            }        
+        }
+        .product-name {
+            a {
+                display: flex;
+                justify-content:flex-start;
+                align-items:center;
+                gap: 2rem;
+                @media (max-width:$md3){
+                    flex-direction: column;
+                }
+            }
+        }
+        .product-image {
+            img{
+                max-width: 100%;
+            }
+        }
+        .product-price,
+        .product-subtotal {
+            color: #222222;
+            @include adaptive-value("font-size", 2.5, 1.6, $fullWidthContainer, $minWidth, "rem");
+            display: flex;
+            gap: 0.5rem;
+            @media (min-width:$md2){
+                span {
+                    display: none;
+                }
+                .amount {
+                    display: inline-block;
+                }
+            }
+            @media (max-width:$md2){
+                justify-content: flex-end;
+            }
+            @media (max-width:$md3){
+                flex-direction: column;
+                align-items: flex-end;
+            }
+        }
+        .product-quantity {
+            max-width: 17rem;
+            @media (max-width:$md2){
+                justify-self: flex-end;
+            }
+        }
+    }
+    &__buttons {
+        @include adaptive-value("margin-top", 3, 2, $fullWidthContainer, $minWidth, "rem");
+        display: inline-flex;
+        flex-direction: column;
+        @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        .coupon {
+            label {
+                font-weight: 700;
+                @include adaptive-value("font-size", 2.5, 1.6, $fullWidthContainer, $minWidth, "rem");
+            }
+            input {
+                @extend .default-input;
+            }
+            display: flex;
+            flex-direction: column;
+            @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        }
+        .button {
+            @extend .button-1;
+        }
+    }
+}
+
+form.checkout {
+    .woocommerce-billing-fields__field-wrapper {
+        @extend .cart-grid;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        @include adaptive-value("column-gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        @include adaptive-value("row-gap", 4, 2, $fullWidthContainer, $minWidth, "rem");
+        @media (max-width:$md3){
+            grid-template-columns: 1fr;
+        }
+        #billing_address_2_field {
+            align-self: flex-end;
+        }
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        label {
+            @include adaptive-value("font-size", 2.5, 1.6, $fullWidthContainer, $minWidth, "rem");
+            abbr {
+                text-decoration: none;
+                color: #d32121;
+            }
+        }
+        input {
+            @extend .default-input;
+            margin: 0;
+        }
+    }
+    h3 {
+        @extend .entry-title;
+    }
+    
+}
+
+.woocommerce-checkout-review-order {
+    @extend .cart-grid;
+    ul.woocommerce-checkout-review-order-table {
+        display: flex;
+        flex-direction: column;
+        @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        @include adaptive-value("margin-bottom", 3, 2, $fullWidthContainer, $minWidth, "rem");
+        @include adaptive-value("font-size", 2, 1.4, $fullWidthContainer, $minWidth, "rem");
+        li {
+            display: flex;
+            align-items:center;
+            @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+            &.cart-discount {
+                a {
+                    color: $orangeColor;
+                    @media (any-hover: hover){
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+            &.checkout-shipping {
+                flex-direction: column;
+                align-items: flex-start;
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+                }
+                li {
+                    align-items:center;
+                }
+                li,
+                input,
+                label {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.woocommerce-checkout-payment {
+    ul.wc_payment_methods {
+        @include adaptive-value("font-size", 2, 1.4, $fullWidthContainer, $minWidth, "rem");
+        display: flex;
+        flex-direction: column;
+        @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        @include adaptive-value("margin-bottom", 3, 2, $fullWidthContainer, $minWidth, "rem");
+        li {
+            display: flex;
+            align-items:center;
+            flex-wrap: wrap;
+            @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+            input,
+            label {
+                cursor: pointer;
+            }
+            .payment_box {
+                flex: 0 0 100%;
+            }
+        }
+    }
+}

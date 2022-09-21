@@ -1,0 +1,7 @@
+.tabs-contacts__map {
+  height: 40rem;
+  margin: 10rem 0 0 0;
+}
+.tabs-contacts__map ymaps {
+  height: 100%;
+}

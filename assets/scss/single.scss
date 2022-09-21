@@ -1,0 +1,649 @@
+.single-page {
+}
+.single {
+		// .single__breadcrumbs
+		&__breadcrumbs {}
+		// .single__container
+		&__container {}
+}
+.product-single {
+    @include adaptive-value("margin-top", 4, 1.5, $fullWidthContainer, $minWidth, "rem");
+    .variations_form {
+        .variations {
+            @include adaptive-value("margin-top", 3, 1, $fullWidthContainer, $minWidth, "rem");
+            @include adaptive-value("margin-bottom", 3, 1, $fullWidthContainer, $minWidth, "rem");
+        }
+        .single_variation_wrap {
+            display: flex;
+            align-items: center;
+            @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+            @media (max-width:$md3){
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .woocommerce-variation-add-to-cart {
+                display: flex;
+                align-items: center;
+                @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+                @media (max-width:$md3){
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                button {
+                    font-size: 1.6rem;
+                    padding: 0.8em 1.5em;
+                    color: #fff;
+                    display: inline-block;
+                    background-color: #F9B300;
+                    border-radius: 5px;
+                    border: 2px solid #F9B300;
+                    transition: all 0.3s ease 0s;
+                    font-weight: 700;
+                    letter-spacing: 0.05em;
+                    width: auto;
+                    cursor: pointer;
+                    @media (any-hover: hover){
+                        &:hover {
+                            background-color: #E2A300;
+                        }
+                    }
+                    @media (max-width:$md1){
+                        font-size: 1.8rem;
+                    }
+                }
+                a.added_to_cart.wc-forward {
+                    display: none !important;
+                }
+            }
+        }
+        label {
+            display: none;
+        }
+        .reset_variations {
+            display: none;
+        }
+        select {
+            padding: 0.2em 0.5em;
+            background: #FFF7E1;
+            border: 1px solid #F9B300;
+            border-radius: 5px;
+            text-align: center;
+            @include adaptive-value("font-size", 3, 1.2, $fullWidthContainer, $minWidth, "rem");
+            cursor: pointer;
+        }  
+    }
+    .grouped_form {
+        margin: 3rem 0 0 0;
+        @include adaptive-value("font-size", 2.5, 1.4, $fullWidthContainer, $minWidth, "rem");
+        tbody {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        tr {
+            display: flex;
+            align-items:center;
+            gap: 1rem;
+        }
+        a.button {
+            @include adaptive-value("font-size", 1.6, 1.2, $fullWidthContainer, $minWidth, "rem");
+            padding: 0.8em 1.5em;
+            color: #fff;
+            display: inline-block;
+            background-color: #F9B300;
+            border-radius: 5px;
+            border: 2px solid #F9B300;
+            transition: all 0.3s ease 0s;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            width: auto;
+            cursor: pointer;
+            @media (any-hover: hover){
+                &:hover {
+                    background-color: #E2A300;
+                }
+            }
+        }
+        label>a {
+            color: $mainColor;
+            @media (any-hover: hover){
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    form.cart {
+        display: flex;
+        align-items:center;
+        @include adaptive-value("margin-top", 3, 2, $fullWidthContainer, $minWidth, "rem");
+        @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        @media (max-width:$md3){
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        button {
+            font-size: 1.6rem;
+            padding: 0.8em 1.5em;
+            color: #fff;
+            display: inline-block;
+            background-color: #F9B300;
+            border-radius: 5px;
+            border: 2px solid #F9B300;
+            transition: all 0.3s ease 0s;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            width: auto;
+            cursor: pointer;
+            @media (any-hover: hover){
+                &:hover {
+                    background-color: $whiteColor;
+                    color: $orangeColor;
+                    border: 2px solid $orangeColor;
+                }
+            }
+            @media (max-width:$md1){
+                font-size: 1.8rem;
+            }
+        }
+    }
+    .price {
+        color: #222222;
+        font-size: 3rem;
+        font-weight: 900;
+        display: flex;
+        flex-direction: column;
+        ins {
+            text-decoration: none;
+        }
+        del {
+            text-decoration: line-through;
+            color: #C6C6C6;
+            font-size: 2rem;
+        }
+        @media (max-width:$md1){
+            font-size: 2.4rem;
+            del {
+                font-size: 1.8rem;
+            }
+        }
+    } 
+    // .product-single__container
+    &__container {}
+    // .product-single__wrapper
+    &__wrapper {
+        background: #FFFFFF;
+        border: 1px solid #E4E4E4;
+        box-sizing: border-box;
+        box-shadow: 0px 0px 1rem rgba(163, 163, 163, 0.25);
+        border-radius: 2rem;
+        @include adaptive-value("padding", 5, 1, $fullWidthContainer, $minWidth, "rem");
+        display: flex;
+        align-items:center;
+        gap: 10rem;
+    }
+    // .product-single__image
+    &__image {
+        @media (max-width:$md2){
+            margin: 2rem 0 0 0;
+        }
+    }
+    // .product-single__content
+    &__content {
+        min-width: 40%;
+    }
+    // .product-single__roasting
+    &__roasting {
+        @include adaptive-value("margin-bottom", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        display: inline-flex;
+        align-items:center;
+        gap: 8px;
+        position: relative;
+        >li {
+            opacity: 0;
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            img {
+                max-width: 2.7rem;
+                max-height: 2.7rem;
+                @include adaptive-value("width", 2.7, 1.7, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("height", 2.7, 1.7, $fullWidthContainer, $minWidth, "rem");
+            }
+        }
+        @media (max-width:$md1){
+            gap: 6px;
+        }
+        // .product-single__roasting_cover
+        &_cover {
+            position: absolute; 
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: inline-flex;
+            align-items:center;
+            gap: 8px;
+            overflow: hidden;
+            @media (max-width:$md1){
+                gap: 6px;
+            }
+            li {
+                display: flex;
+                justify-content:center;
+                align-items:center;
+                img {
+                    max-width: 2.7rem;
+                    max-height: 2.7rem;
+                    @include adaptive-value("width", 2.7, 1.7, $fullWidthContainer, $minWidth, "rem");
+                    @include adaptive-value("height", 2.7, 1.7, $fullWidthContainer, $minWidth, "rem");
+                }
+            }
+        }
+    }
+    // .product-single__top
+    &__top {
+        display: flex;
+        justify-content:space-between;
+        gap: 1rem;
+        @media (max-width:$md3){
+            flex-direction: column;
+        }
+    }
+    // .product-single__labels
+    &__labels {}
+    // .product-single__title
+    &__title {}
+    // .product-single__subcategories
+    &__subcategories {
+        @include adaptive-value("margin-top", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        display: flex;
+        @include adaptive-value("gap", 1, 0.5, $fullWidthContainer, $minWidth, "rem");
+        flex-wrap: wrap;
+    }
+    // .product-single__subcategory
+    &__subcategory {
+        @include adaptive-value("font-size", 2, 1.2, $fullWidthContainer, $minWidth, "rem");
+        a {
+            color: #222222;
+        }
+        @media (any-hover: hover){
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        &:not(:last-child){
+            &::after{
+                content:',';
+                
+            }
+        }
+    }
+    // .product-single__tags
+    &__tags {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        a {
+            color: $orangeColor;
+            @include adaptive-value("font-size", 2, 1.4, $fullWidthContainer, $minWidth, "rem");
+            @media (any-hover: hover){
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    // .product-single__rate
+    &__rate {
+        @include adaptive-value("margin-top", 3, 2, $fullWidthContainer, $minWidth, "rem");
+        display: flex;
+        align-items:center;
+        gap: 2rem;
+    }
+    // .product-single__rating
+    &__rating {
+        display: inline-flex;
+        align-items:center;
+        gap: 2px;
+        position: relative;
+        li {
+            display: flex;
+            justify-content:center;
+            align-items:center;
+            img {
+                max-width: 2.5rem;
+                max-height: 2.5rem;
+            }
+        }
+        // .product-single__rating_cover
+        &_cover {
+            position: absolute; 
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: inline-flex;
+            align-items:center;
+            gap: 2px;
+            background-color: transparent;
+            overflow: hidden;
+            li {
+                display: flex;
+                justify-content:center;
+                align-items:center;
+            }
+        }
+    }
+    // .product-single__rating-reviews
+    &__rating-reviews {
+        display: inline-flex;
+        align-items:flex-end;
+        gap: 2rem;
+        color: #222;
+        @include adaptive-value("font-size", 3, 1.6, $fullWidthContainer, $minWidth, "rem");
+        span {
+            @include adaptive-value("font-size", 1.6, 1.2, $fullWidthContainer, $minWidth, "rem");
+            color: #5B5B5B;
+        }
+    }
+    // .product-single__description
+    &__description {
+        @include adaptive-value("margin-top", 3.5, 2.5, $fullWidthContainer, $minWidth, "rem");
+        max-width: 65rem;
+        @include adaptive-value("font-size", 2, 1.2, $fullWidthContainer, $minWidth, "rem");
+        line-height: 130%;
+        color: #222222;
+    }
+    // .product-single__types
+    &__types {
+        @include adaptive-value("margin-top", 4, 3, $fullWidthContainer, $minWidth, "rem");
+        display: flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 1rem;
+        @media (max-width:$md3){
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+    // .product-single__label
+    &__label {
+        display: block;
+        font-weight: 700;
+        color: #222222;
+        @include adaptive-value("font-size", 2, 1.2, $fullWidthContainer, $minWidth, "rem");
+    }
+    // .product-single__type
+    &__type {
+        margin: 1rem 0 0 0;
+        display: inline-flex;
+        align-items:center;
+        gap: 3px;
+        position: relative;
+        @media (max-width:$md1){
+            gap: 2px;
+        }
+        >li {
+            border-radius: 50%;
+            background-color: $emptyColor;
+            width: 1rem;
+            height: 1rem;
+            @media (max-width:$md1){
+                width: 0.7rem;
+                height: 0.7rem;
+            }
+        }
+        // .product-single__type_cover
+        &_cover {
+            position: absolute; 
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: inline-flex;
+            align-items:center;
+            gap: 3px;
+            overflow: hidden;
+            @media (max-width:$md1){
+                gap: 2px;
+            }
+            li {
+                border-radius: 50%;
+                background-color: $orangeColor;
+                flex: 0 0 1rem;
+                height: 1rem;
+                @media (max-width:$md1){
+                    flex: 0 0 0.7rem;
+                    height: 0.7rem;
+                }
+            }
+        }
+    }
+    // .product-single__out
+    &__out {
+        @include adaptive-value("margin-top", 3, 2, $fullWidthContainer, $minWidth, "rem");
+        font-weight: 700;
+        @include adaptive-value("font-size", 2.5, 1.6, $fullWidthContainer, $minWidth, "rem");
+    }
+}
+
+.single {
+    // .single__additional
+    &__additional {
+        @include adaptive-value("margin-top", 10, 4, $fullWidthContainer, $minWidth, "rem");
+        @include adaptive-value("margin-bottom", 10, 4, $fullWidthContainer, $minWidth, "rem");
+    }
+}
+.additional-single {
+    // .additional-single__container
+    &__container {}
+    // .additional-single__tabs
+    &__tabs {
+        .product-filter-tab {
+            display: none;
+            @include adaptive-value("margin-top", 5, 2, $fullWidthContainer, $minWidth, "rem");
+            &._active {
+                display: block;
+            }
+        }
+    }
+    // .additional-single__list
+    &__list {
+        display: flex;
+        @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        align-items:center;
+        justify-content:space-between;
+        flex-wrap: wrap;
+        li {
+            flex: 0 0 23%;
+            @media (max-width:$md3){
+                flex: 0 0 48%;
+            }
+        }
+    }
+    // .additional-single__button
+    &__button {
+        width: 100%;
+        padding: 0.7em 0.7em;
+        color: $orangeColor;
+        background: #F6F6F6;
+        border: 1px solid #C9C9C9;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: background-color 0.3s ease 0s;
+        @include adaptive-value("font-size", 2.5, 1.2, $fullWidthContainer, $minWidth, "rem");
+        &._active {
+            background: #5e4400;
+        }
+        @media (any-hover: hover){
+            &:hover {
+                background: #5e4400;
+            }
+        }
+    }
+    // .additional-single__title
+    &__title {
+        @include adaptive-value("margin-bottom", 3, 2, $fullWidthContainer, $minWidth, "rem");
+    }
+    // .additional-single__description
+    &__description {}
+    // .additional-single__cook
+    &__cook {}
+    // .additional-single__additionaly
+    &__additionaly {}
+    // .additional-single__reviews
+    &__reviews {
+        li {
+            @include adaptive-value("margin-bottom", 3, 2, $fullWidthContainer, $minWidth, "rem");
+            background: $whiteColor;
+            box-shadow: 0px 0px 3rem rgba(149, 149, 149, 0.25);
+            @include adaptive-value("border-radius", 2, 1, $fullWidthContainer, $minWidth, "rem");
+            .comment-top {
+                display: flex;
+                justify-content:space-between;
+                align-items:center;
+                @include adaptive-value("font-size", 2, 1.2, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("padding-top", 2.5, 1, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("padding-bottom", 2.5, 1, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("padding-right", 8, 2, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("padding-left", 8, 2, $fullWidthContainer, $minWidth, "rem");
+            }
+            .comment-text {
+                @include adaptive-value("font-size", 2, 1.2, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("padding-top", 2.5, 1, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("padding-bottom", 2.5, 1, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("padding-right", 8, 2, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("padding-left", 8, 2, $fullWidthContainer, $minWidth, "rem");
+            }
+            .comment-bottom {
+                background-color: $bgColor;
+                display: flex;
+                @include adaptive-value("gap", 5, 2, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("font-size", 2, 1.2, $fullWidthContainer, $minWidth, "rem");
+                font-weight: 700;
+                align-items: flex-end;
+                @include adaptive-value("padding-top", 2.5, 1, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("padding-bottom", 2.5, 1, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("padding-right", 8, 2, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("padding-left", 8, 2, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("border-bottom-left-radius", 2, 1, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("border-bottom-right-radius", 2, 1, $fullWidthContainer, $minWidth, "rem");
+            }
+            .comment-body {
+                display: flex;
+                flex-direction: column;
+                .comment-meta {
+                    @extend .comment-bottom;
+                    order: 1;
+                    justify-content:space-between;
+                    a {
+                        pointer-events: none;
+                        cursor: default;
+                        color: $mainColor;
+                        @include adaptive-value("font-size", 2, 1.2, $fullWidthContainer, $minWidth, "rem");
+                        font-weight: 700;
+                    }
+                    .comment-author {
+                        display: flex;
+                        align-items: flex-end;
+                        @include adaptive-value("gap", 5, 2, $fullWidthContainer, $minWidth, "rem");
+                    }
+                    span.says {
+                        display: none;
+                    }
+                }
+                .comment-content {
+                    @extend .comment-text;
+                    order: 0;
+                }
+                .reply {
+                    display: none;
+                }
+            }
+        }
+        .comment-respond {
+            @include adaptive-value("margin-top", 3, 2, $fullWidthContainer, $minWidth, "rem");
+            @include adaptive-value("padding-top", 2.5, 1, $fullWidthContainer, $minWidth, "rem");
+            @include adaptive-value("padding-bottom", 2.5, 1, $fullWidthContainer, $minWidth, "rem");
+            @include adaptive-value("padding-right", 8, 2, $fullWidthContainer, $minWidth, "rem");
+            @include adaptive-value("padding-left", 8, 2, $fullWidthContainer, $minWidth, "rem");
+            background: $whiteColor;
+            box-shadow: 0px 0px 3rem rgba(149, 149, 149, 0.25);
+            @include adaptive-value("border-radius", 2, 1, $fullWidthContainer, $minWidth, "rem");
+            .comment-reply-title {
+                @extend .single-title;
+                @include adaptive-value("margin-bottom", 2, 1, $fullWidthContainer, $minWidth, "rem");
+                display: block;
+            }
+            .comment-notes {
+                @include adaptive-value("margin-bottom", 2, 1, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("font-size", 2.5, 1.6, $fullWidthContainer, $minWidth, "rem");
+            }
+            .comment-form-rating {
+                display: flex;
+                align-items:center;
+                @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("margin-bottom", 2, 1, $fullWidthContainer, $minWidth, "rem");
+                @media (max-width:$md4){
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                label {
+                    font-weight: 700;
+                    @include adaptive-value("font-size", 2.5, 1.6, $fullWidthContainer, $minWidth, "rem");
+                }
+            }
+            .comment-form-comment,
+            .comment-form-author,
+            .comment-form-email {
+                display: flex;
+                flex-direction: column;
+                @include adaptive-value("margin-bottom", 2, 1, $fullWidthContainer, $minWidth, "rem");
+                @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+                label {
+                    font-weight: 700;
+                    @include adaptive-value("font-size", 2.5, 1.6, $fullWidthContainer, $minWidth, "rem");
+                }
+                textarea,
+                input {
+                    background-color: $bgColor;
+                    box-shadow: 0px 0px 1rem rgba(149, 149, 149, 0.25);
+                    @include adaptive-value("border-radius", 2, 1, $fullWidthContainer, $minWidth, "rem");
+                    @include adaptive-value("padding", 2, 1.5, $fullWidthContainer, $minWidth, "rem");
+                    @include adaptive-value("font-size", 2, 1.2, $fullWidthContainer, $minWidth, "rem");
+                    resize: none;
+                }
+            }
+            .comment-form-cookies-consent {
+                @include adaptive-value("margin-bottom", 2, 1, $fullWidthContainer, $minWidth, "rem");
+                display: flex;
+                align-items:center;
+                @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+                @media (max-width:$md3){
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                label {
+                    @include adaptive-value("font-size", 2.5, 1.6, $fullWidthContainer, $minWidth, "rem");
+                    order: 0;
+                    cursor: pointer;
+                }
+                input {
+                    @include adaptive-value("width", 3, 2, $fullWidthContainer, $minWidth, "rem");
+                    @include adaptive-value("height", 3, 2, $fullWidthContainer, $minWidth, "rem");
+                    order: 1;
+                    cursor: pointer;
+                    flex-shrink: 0;
+                }
+            }
+            .form-submit { 
+                input {
+                    @extend .button-1;
+                    padding: 0.8em 1.5em;
+                    @media (max-width:$md3){
+                        width: 100%;
+                        padding: 0.8em 0;
+                    }
+                }
+            }
+        }
+    }
+}

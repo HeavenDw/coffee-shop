@@ -1,0 +1,55 @@
+.woocommerce-order {
+    @include adaptive-value("margin-top", 3, 2, $fullWidthContainer, $minWidth, "rem");
+    display: flex;
+    flex-direction: column;
+    @include adaptive-value("gap", 3, 2, $fullWidthContainer, $minWidth, "rem");
+    @include adaptive-value("font-size", 2.5, 1.4, $fullWidthContainer, $minWidth, "rem");
+    ul.woocommerce-order-overview {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+.woocommerce-order-details {
+    @extend .cart-grid;
+    margin: 0;
+    h2 {
+        @extend .single-title;
+        @include adaptive-value("margin-bottom", 3, 2, $fullWidthContainer, $minWidth, "rem");
+    }
+}
+.order-grid {
+    &__header {
+        display: grid;
+        grid-template-columns: 1fr 20% 20%;
+        gap: 1rem;
+    }
+    &__items {
+        display: grid;
+        grid-template-columns: 1fr 20% 20%;
+        @include adaptive-value("margin-top", 3, 2, $fullWidthContainer, $minWidth, "rem");
+        @include adaptive-value("margin-bottom", 3, 2, $fullWidthContainer, $minWidth, "rem");
+        @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        a {
+            @extend .link;
+        }
+    }
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        li {
+            display: flex;
+            @include adaptive-value("gap", 2, 1, $fullWidthContainer, $minWidth, "rem");
+        }
+    }
+}
+
+.woocommerce-customer-details {
+    @extend .cart-grid;
+    margin: 0;
+    h2 {
+        @extend .single-title;
+        @include adaptive-value("margin-bottom", 3, 2, $fullWidthContainer, $minWidth, "rem");
+    }
+}
